@@ -20,13 +20,31 @@ namespace ListNumsActions
                 switch (command)
                 {
                     case "ins":
-                        //TODO
+                        nums.Insert(int.Parse(cmd[1]), int.Parse(cmd[2]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
+
                         break;
                     case "del":
-                        //TODO
+                        nums.Remove(int.Parse(cmd[1]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
                         break;
                     case "contains":
-                        //TODO
+                        int targetElement = nums[1];
+
+                        if (nums.Contains(targetElement))
+                        {
+                            Console.WriteLine("YES");
+                        }
+                        else
+                        {
+                            Console.WriteLine("NO");
+                        }
+                        break;
+                        break;
                         break;
                     case "remove":
                         //TODO
