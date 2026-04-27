@@ -20,15 +20,34 @@ namespace ListNumsActions
                 switch (command)
                 {
                     case "ins":
-                        //TODO
+                        nums.Insert(int.Parse(cmd[1]), int.Parse(cmd[2]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
+
                         break;
                     case "del":
-                        //TODO
+                        nums.Remove(int.Parse(cmd[1]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
                         break;
                     case "contains":
-                        //TODO
+                        int targetElement = nums[1];
+
+                        if (nums.Contains(targetElement))
+                        {
+                            Console.WriteLine("YES");
+                        }
+                        else
+                        {
+                            Console.WriteLine("NO");
+                        }
+                        break;
+                        break;
                         break;
                     case "remove":
+
                         int index = int.Parse(cmd[1]);
                         if (index >= 0 && index < nums.Count)
                         {
@@ -45,6 +64,32 @@ namespace ListNumsActions
                         var larger = nums.Where(n => n > limitLarge);
                         Console.WriteLine(string.Join(" ", larger));
                         break;
+
+                   
+                    case "countl":
+                        int number = int.Parse(cmd[1]);
+                        int count = nums.Count(x => x > number);
+                        Console.WriteLine(count);
+                        break;
+
+                    case "cut":
+                        int n = int.Parse(cmd[1]);
+
+                        if (n >= nums.Count)
+                        {
+                            nums.Clear();
+                        }
+                        else
+                        {
+                            nums.RemoveRange(0, n);
+                        }
+                        break;
+
+                    case "print":
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+
+
                     default:
                         break;
                 }
