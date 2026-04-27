@@ -20,17 +20,51 @@ namespace ListNumsActions
                 switch (command)
                 {
                     case "ins":
-                        //TODO
+                        nums.Insert(int.Parse(cmd[1]), int.Parse(cmd[2]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
+
                         break;
                     case "del":
-                        //TODO
+                        nums.Remove(int.Parse(cmd[1]));
+                        Console.WriteLine(string.Join(" ", nums));
+                        break;
+                        break;
                         break;
                     case "contains":
-                        //TODO
+                        int targetElement = nums[1];
+
+                        if (nums.Contains(targetElement))
+                        {
+                            Console.WriteLine("YES");
+                        }
+                        else
+                        {
+                            Console.WriteLine("NO");
+                        }
+                        break;
+                        break;
                         break;
                     case "remove":
-                        //TODO`
+
+                        int index = int.Parse(cmd[1]);
+                        if (index >= 0 && index < nums.Count)
+                        {
+                            nums.RemoveAt(index);
+                        }
                         break;
+                    case "add":
+                        int num1 = int.Parse(cmd[1]);
+                        int num2 = int.Parse(cmd[2]);
+                        nums.Add(num1 + num2);
+                        break;
+                    case "large":
+                        int limitLarge = int.Parse(cmd[1]);
+                        var larger = nums.Where(n => n > limitLarge);
+                        Console.WriteLine(string.Join(" ", larger));
+                        break;
+
                    
                     case "countl":
                         int number = int.Parse(cmd[1]);
@@ -54,6 +88,7 @@ namespace ListNumsActions
                     case "print":
                         Console.WriteLine(string.Join(" ", nums));
                         break;
+
 
                     default:
                         break;
